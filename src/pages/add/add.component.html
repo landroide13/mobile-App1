@@ -29,7 +29,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="items.length > 0">
     <ion-card-header>
       <h3>Items Added</h3>
     </ion-card-header>
@@ -39,9 +39,9 @@
         <ion-item *ngFor="let item of items; let i = index">
           <button ion-button  color="dark" clear>{{item.name}}</button>
 
-          <button ion-button outline item-right color="danger">
+          <button ion-button (click)="delete(i)" outline item-right color="danger">
             <ion-icon md="md-trash"></ion-icon>
-            Delete Item( {{i}} )
+            Delete Item
           </button>
         </ion-item>
       </ion-list>

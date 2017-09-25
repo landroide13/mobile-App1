@@ -29,4 +29,9 @@ export class AddComponent implements OnInit {
     this.nameItem = "";
 
   }
+
+  delete(i:number){
+    this.items.splice(i, 1);
+  }
+
 }
