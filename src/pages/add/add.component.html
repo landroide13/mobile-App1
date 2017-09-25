@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>{{nameList}}</ion-title>
+    <ion-title>{{nameList | placeholder:"New List"}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,13 +13,13 @@
     <ion-card-header>
       <ion-item>
         <ion-label floating>List Name</ion-label>
-        <ion-input type="text" [ngModel]="nameList" name="nameList"></ion-input>
+        <ion-input type="text" [(ngModel)]="nameList" name="nameList"></ion-input>
     </ion-item>
 
     </ion-card-header>
     <ion-item>
       <ion-label floating>Item: </ion-label>
-      <ion-input type="text" [ngModel]="nameItem" name="nameItem"></ion-input>
+      <ion-input type="text" [(ngModel)]="nameItem" name="nameItem"></ion-input>
     </ion-item>
 
     <button ion-button>Add</button>
