@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../../app/class/list';
-import {ListItem} from '../../app/class/list-item'
+import {ListItem} from '../../app/class/list-item';
+import { AlertController, NavController } from 'ionic-angular';
+import {ListWishesService} from '../../app/services/list-wishes.service';
 
 @Component({
   selector: 'app-add',
@@ -8,12 +10,14 @@ import {ListItem} from '../../app/class/list-item'
 })
 export class AddComponent implements OnInit {
 
-  nameList:string;
+  nameList:string = "";
   nameItem:string = "";
 
   items:ListItem[] = [];
 
-  constructor() {  }
+  constructor( public _listWishesService: ListWishesService,
+               public navCtr: NavController,
+               public alertCtr: AlertController ) {  }
 
   ngOnInit() {}
 
@@ -34,4 +38,25 @@ export class AddComponent implements OnInit {
     this.items.splice(i, 1);
   }
 
-}
+  saveList(){
+    if(this.nameList.length == 0){
+      let alert = this.alertCtr.create({
+      title: 'Name List',
+      subTitle: "List's name its mandatory ",
+      buttons: ['OK']
+      });
+    alert.present();
+    return;
+    }
+
+    let list = new List(this.nameList);
+    list.items = this.items;
+
+    this._listWishesService.lists.push(list);
+    this.navCtr.pop();
+
+
+    }
+
+
+  }

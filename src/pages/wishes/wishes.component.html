@@ -12,10 +12,10 @@
   <ion-card *ngFor="let list of _listWishesService.lists" >
 
     <ion-item>
-      <button ion-button color="secondary" clear>Secondary Clear</button>
+      <h2>{{list.name}}</h2>
     </ion-item>
 
-    <h2>{{list.name}}</h2>
+
     <ion-list>
       <ion-item>
         <ion-icon md="logo-android">Push</ion-icon>
