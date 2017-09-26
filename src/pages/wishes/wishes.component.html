@@ -9,25 +9,29 @@
 
   <h2>Wishes</h2>
 
-  <ion-card *ngFor="let list of _listWishesService.lists" >
+  <ion-card *ngFor="let list of _listWishesService.lists; let i = index" >
 
-    <ion-item>
+    <ion-item color="primary" (click)="goDetail(list, i)">
       <h2>{{list.name}}</h2>
+      <ion-note item-right>
+        {{list.items.length}} items
+      </ion-note>
     </ion-item>
 
 
     <ion-list>
-      <ion-item>
-        <ion-icon md="logo-android">Push</ion-icon>
+      <ion-item (click)="goDetail(list, i)" *ngFor="let item of list.items | slice:0:2">
+        <ion-icon *ngIf="!item.acomplish" ios="ios-square-outline" md="md-square-outline"></ion-icon>
+        <ion-icon *ngIf="item.acomplish" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+        {{item.name}}
       </ion-item>
-      <ion-item>
-        <ion-icon md="logo-android">Push</ion-icon>
-      </ion-item>
-      <ion-item>
-        <ion-icon md="logo-android">Push</ion-icon>
+
+      <ion-item class="text-center" *ngIf="list.items.length > 2">
+         <ion-icon color="primary" ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
       </ion-item>
 
     </ion-list>
+
   </ion-card>
 
   <ion-fab right bottom>

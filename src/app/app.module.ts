@@ -18,6 +18,7 @@ import {ListWishesService} from './services/list-wishes.service';
 import {WishesComponent} from '../pages/wishes/wishes.component';
 import {GoalsComponent} from '../pages/goals/goals.component';
 import {AddComponent} from '../pages/add/add.component';
+import {DetailsComponent} from '../pages/details/details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {AddComponent} from '../pages/add/add.component';
     PlaceHolderPipe,
     TabsPage,
     WishesComponent,
-    AddComponent
+    AddComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import {AddComponent} from '../pages/add/add.component';
     GoalsComponent,
     TabsPage,
     WishesComponent,
-    AddComponent
+    AddComponent,
+    DetailsComponent
   ],
   providers: [
     StatusBar,
