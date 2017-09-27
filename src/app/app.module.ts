@@ -6,8 +6,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-//PipeTransform
+//Pipes
 import {PlaceHolderPipe} from './pipes/placeholder.pipe';
+import {GoalsPipe} from './pipes/goals.pipes';
 
 //Services
 
@@ -25,6 +26,7 @@ import {DetailsComponent} from '../pages/details/details.component';
     MyApp,
     GoalsComponent,
     PlaceHolderPipe,
+    GoalsPipe,
     TabsPage,
     WishesComponent,
     AddComponent,

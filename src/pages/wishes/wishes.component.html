@@ -9,7 +9,17 @@
 
   <h2>Wishes</h2>
 
-  <ion-card *ngFor="let list of _listWishesService.lists; let i = index" >
+  <ion-grid *ngIf="(_listWishesService.lists | goals).length === 0">
+    <ion-row>
+      <ion-col class="text-center empty-box">
+        <ion-icon class="icon-big" ios="ios-sunny" md="md-sunny"></ion-icon>
+        <p>No list pending..</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-card *ngFor="let list of _listWishesService.lists | goals; let i = index" >
 
     <ion-item color="primary" (click)="goDetail(list, i)">
       <h2>{{list.name}}</h2>

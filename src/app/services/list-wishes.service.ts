@@ -34,4 +34,9 @@ export class ListWishesService {
     this.updateData();
   }
 
+  deleteList(ind:number){
+    this.lists.splice(ind,1);
+    this.updateData();
+  }
+
 }
